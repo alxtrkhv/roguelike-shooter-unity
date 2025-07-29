@@ -104,7 +104,7 @@ namespace Game.Characters
         return;
       }
 
-      var scale = 1.25f;
+      var scale = 0.9f;
       _attackSequence = Sequence.Create()
         .Chain(Tween.Scale(_weaponText.transform, scale, 0.25f))
         .Chain(Tween.Scale(_weaponText.transform, 1f, 0.25f));
@@ -126,9 +126,6 @@ namespace Game.Characters
       if (_body == null) {
         return;
       }
-
-      var originalColor = _body.color;
-      var hitColor = new Color(1f, 0.5f, 0.5f, originalColor.a);
 
       if (_hitSequence.isAlive) {
         return;
