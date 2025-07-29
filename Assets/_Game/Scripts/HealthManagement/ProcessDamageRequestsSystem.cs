@@ -33,6 +33,11 @@ namespace Game.HealthManagement
       health.Value -= damageRequest.Amount;
       target.SetTag<HealthUpdated>();
 
+      if (target.HasAllOf<HitView>()) {
+        ref var hitView = ref target.Ref<HitView>();
+        hitView.Value.Hit();
+      }
+
       Log.Debug($"{target.ToString()} takes {damageRequest.Amount} damage.");
     }
   }

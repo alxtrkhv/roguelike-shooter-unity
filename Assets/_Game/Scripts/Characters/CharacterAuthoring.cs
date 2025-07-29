@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Characters
 {
-  public abstract class CharacterAuthoring : Authoring, IHealthView, IWeaponView
+  public abstract class CharacterAuthoring : Authoring, IHealthView, IWeaponView, IHitView
   {
     [SerializeField]
     private SpriteRenderer? _body;
@@ -19,6 +19,7 @@ namespace Game.Characters
     private TMP_Text? _weaponText;
 
     private Sequence _attackSequence;
+    private Sequence _hitSequence;
 
     protected override GameWorld.Entity OnBake()
     {
@@ -48,6 +49,11 @@ namespace Game.Characters
       if (weaponView != null) {
         entity.Add(weaponView.ConvertToComponent());
         weaponView.SetWeapon(equipment.Weapon);
+      }
+
+      var hitView = GetComponentInChildren<IHitView>();
+      if (hitView != null) {
+        entity.Add(hitView.ConvertToComponent());
       }
 
       return entity;
@@ -113,6 +119,25 @@ namespace Game.Characters
       var color = _weaponText.color;
       color.a = 0.5f + (progress * 0.5f);
       _weaponText.color = color;
+    }
+
+    public virtual void Hit()
+    {
+      if (_body == null) {
+        return;
+      }
+
+      var originalColor = _body.color;
+      var hitColor = new Color(1f, 0.5f, 0.5f, originalColor.a);
+
+      if (_hitSequence.isAlive) {
+        return;
+      }
+
+      var scale = 0.8f;
+      _hitSequence = Sequence.Create()
+        .Chain(Tween.Scale(_body.transform, scale, 0.25f))
+        .Chain(Tween.Scale(_body.transform, 1f, 0.25f));
     }
 
     protected abstract float GetSpeed();
