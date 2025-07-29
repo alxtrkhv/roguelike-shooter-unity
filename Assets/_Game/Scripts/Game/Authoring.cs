@@ -24,11 +24,6 @@ namespace Game
         new CurrentPosition { Value = transform.localPosition, },
         new AuthoringLink { Value = this, }
       );
-
-      if (entity.HasAllOfTags<Character>()) {
-        entity.SetTag<Alive>();
-        entity.Add<Health>(new() { Value = 100f, MaxValue = 100f, });
-      }
     }
 
     protected virtual GameWorld.Entity OnBake() => GameWorld.Entity.New();
@@ -48,6 +43,6 @@ namespace Game
       entity.Destroy();
     }
 
-    protected virtual void OnDispose()  { }
+    protected virtual void OnDispose() { }
   }
 }

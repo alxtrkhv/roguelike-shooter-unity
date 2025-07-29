@@ -1,4 +1,5 @@
 using FFS.Libraries.StaticEcs;
+using Game.App;
 using UnityEngine;
 
 namespace Game.HealthManagement
@@ -29,14 +30,10 @@ namespace Game.HealthManagement
 
       ref var health = ref target.Ref<Health>();
 
-      health.Value = Mathf.Min(health.Value + healRequest.Amount, health.MaxValue);
+      health.Value += healRequest.Amount;
+      target.SetTag<HealthUpdated>();
 
-      if (health.Value <= 0f || !target.HasAllOfTags<Dead>()) {
-        return;
-      }
-
-      target.DeleteTag<Dead>();
-      target.SetTag<Alive>();
+      Log.Debug($"{target.ToString()} receives {healRequest.Amount} heal.");
     }
   }
 }

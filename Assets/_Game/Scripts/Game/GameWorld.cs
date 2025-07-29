@@ -33,8 +33,10 @@ namespace Game
       RegisterComponentType<AttackRequest>();
       RegisterComponentType<AttackCooldown>();
       RegisterComponentType<AttackAnimation>();
+      RegisterComponentType<HealthView>();
       RegisterTagType<Alive>();
       RegisterTagType<Dead>();
+      RegisterTagType<HealthUpdated>();
 
       RegisterComponentType<AuthoringLink>();
 

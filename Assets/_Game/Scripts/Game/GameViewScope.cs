@@ -32,6 +32,7 @@ namespace Game
       RegisterSystem<ProcessAttackRequestsSystem>();
       RegisterSystem<ProcessHealRequestsSystem>();
       RegisterSystem<ProcessDamageRequestsSystem>();
+      RegisterSystem<UpdateHealthSystem>();
       RegisterSystem<ProcessAttackCooldownSystem>();
       RegisterSystem<ProcessAttackAnimationSystem>();
       RegisterSystem<RemoveNewPositionDuringAttackSystem>();

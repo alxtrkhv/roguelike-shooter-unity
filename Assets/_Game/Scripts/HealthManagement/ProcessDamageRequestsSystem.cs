@@ -30,18 +30,10 @@ namespace Game.HealthManagement
 
       ref var health = ref target.Ref<Health>();
 
-      health.Value = Mathf.Max(health.Value - damageRequest.Amount, 0f);
+      health.Value -= damageRequest.Amount;
+      target.SetTag<HealthUpdated>();
 
-      Log.Debug($"{target.ToString()} has {health.Value} of {health.MaxValue} health.");
-
-      if (health.Value > 0f || !target.HasAllOfTags<Alive>()) {
-        return;
-      }
-
-      Log.Debug($"{target.ToString()} dies.");
-
-      target.DeleteTag<Alive>();
-      target.SetTag<Dead>();
+      Log.Debug($"{target.ToString()} takes {damageRequest.Amount} damage.");
     }
   }
 }
