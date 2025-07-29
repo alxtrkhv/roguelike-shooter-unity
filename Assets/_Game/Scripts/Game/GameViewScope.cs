@@ -20,15 +20,25 @@ namespace Game
       RegisterSystem<BakeAuthoringsSystem>();
 
       // Frame
+      RegisterSystem<FindNearestEnemySystem>();
+
       RegisterSystem<RunBehaviorsSystem>();
       RegisterSystem<ProcessPlayerInputSystem>();
+
       RegisterSystem<ProcessTargetPositionSystem>();
       RegisterSystem<ProcessTargetDirectionSystem>();
+      RegisterSystem<RemoveRedundantNewPositionSystem>();
 
+      RegisterSystem<ProcessAttackRequestsSystem>();
       RegisterSystem<ProcessHealRequestsSystem>();
       RegisterSystem<ProcessDamageRequestsSystem>();
+      RegisterSystem<ProcessAttackCooldownSystem>();
+      RegisterSystem<ProcessAttackAnimationSystem>();
+      RegisterSystem<RemoveNewPositionDuringAttackSystem>();
 
       RegisterSystem<ApplyNewPositionSystem>();
+
+      RegisterSystem<ProcessDeadPlayerSystem>();
 
       // Destroy
       RegisterSystem<DestroyAuthoringSystem>();

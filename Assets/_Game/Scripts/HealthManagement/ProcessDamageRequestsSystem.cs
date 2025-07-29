@@ -1,4 +1,5 @@
 using FFS.Libraries.StaticEcs;
+using Game.App;
 using UnityEngine;
 
 namespace Game.HealthManagement
@@ -31,9 +32,13 @@ namespace Game.HealthManagement
 
       health.Value = Mathf.Max(health.Value - damageRequest.Amount, 0f);
 
+      Log.Debug($"{target.ToString()} has {health.Value} of {health.MaxValue} health.");
+
       if (health.Value > 0f || !target.HasAllOfTags<Alive>()) {
         return;
       }
+
+      Log.Debug($"{target.ToString()} dies.");
 
       target.DeleteTag<Alive>();
       target.SetTag<Dead>();

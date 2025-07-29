@@ -21,7 +21,6 @@ namespace Game.Input
       _moveAction = _playerMap.FindAction("Move");
 
       _playerMap.Enable();
-      _moveAction.Enable();
     }
 
     public void Update()

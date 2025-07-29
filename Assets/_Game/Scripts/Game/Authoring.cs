@@ -20,14 +20,14 @@ namespace Game
       Entity = entity.Gid();
 
       entity.Add(
-        new TransformLink { Value = transform },
-        new CurrentPosition { Value = transform.localPosition },
+        new TransformLink { Value = transform, },
+        new CurrentPosition { Value = transform.localPosition, },
         new AuthoringLink { Value = this, }
       );
 
       if (entity.HasAllOfTags<Character>()) {
         entity.SetTag<Alive>();
-        entity.Add<Health>(new() { Value = 10f, MaxValue = 10f, });
+        entity.Add<Health>(new() { Value = 100f, MaxValue = 100f, });
       }
     }
 

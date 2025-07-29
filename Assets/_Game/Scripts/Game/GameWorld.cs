@@ -2,6 +2,7 @@ using FFS.Libraries.StaticEcs;
 using Game.AI;
 using Game.Characters;
 using Game.HealthManagement;
+using Game.Items;
 using Game.Movement;
 
 namespace Game
@@ -9,7 +10,6 @@ namespace Game
   public abstract class GameWorld : World<GameWorld.Tag>
   {
     public struct Tag : IWorldType { }
-
 
     public static void RegisterComponents()
     {
@@ -22,16 +22,26 @@ namespace Game
 
       RegisterTagType<Character>();
       RegisterTagType<Player>();
+      RegisterTagType<NPC>();
+      RegisterTagType<Enemy>();
+
+      RegisterComponentType<Equipment>();
 
       RegisterComponentType<Health>();
       RegisterComponentType<DamageRequest>();
       RegisterComponentType<HealRequest>();
+      RegisterComponentType<AttackRequest>();
+      RegisterComponentType<AttackCooldown>();
+      RegisterComponentType<AttackAnimation>();
       RegisterTagType<Alive>();
       RegisterTagType<Dead>();
 
       RegisterComponentType<AuthoringLink>();
 
       RegisterComponentType<Behavior>();
+      RegisterComponentType<Target>();
+      RegisterComponentType<NearestEnemy>();
+      RegisterTagType<LookingForNearestEnemy>();
     }
   }
 
