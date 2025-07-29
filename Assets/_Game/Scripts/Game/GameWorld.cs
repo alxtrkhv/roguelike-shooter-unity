@@ -26,6 +26,7 @@ namespace Game
       RegisterTagType<Enemy>();
 
       RegisterComponentType<Equipment>();
+      RegisterComponentType<WeaponView>();
 
       RegisterComponentType<Health>();
       RegisterComponentType<DamageRequest>();

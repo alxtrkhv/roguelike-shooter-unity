@@ -108,3 +108,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _body: {fileID: 445314605151266126}
   _healthText: {fileID: 368536597011294572}
+  _weaponText: {fileID: 8048269082370769838}
+--- !u!114 &8048269082370769838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8636869336025503573, guid: b7a04cfb3ad9045669091b4d5ff1ff32, type: 3}
+  m_PrefabInstance: {fileID: 1760169613653153019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

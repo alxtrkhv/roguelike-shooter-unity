@@ -38,8 +38,8 @@ namespace Game.HealthManagement
       ref var equipment = ref source.Ref<Equipment>();
       var weapon = equipment.Weapon;
 
-      source.Put(new AttackCooldown { RemainingTime = weapon.Cooldown, });
-      source.Put(new AttackAnimation { RemainingTime = 0.5f, });
+      source.Put(new AttackCooldown(weapon.Cooldown));
+      source.Put(new AttackAnimation(0.5f));
 
       DamageRequest.Create(source, target, weapon.Damage);
 
