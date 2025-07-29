@@ -40,6 +40,7 @@ namespace Game
       RegisterSystem<ApplyNewPositionSystem>();
 
       RegisterSystem<ProcessDeadPlayerSystem>();
+      RegisterSystem<ProcessDeadEnemySystem>();
 
       // Destroy
       RegisterSystem<DestroyAuthoringSystem>();
