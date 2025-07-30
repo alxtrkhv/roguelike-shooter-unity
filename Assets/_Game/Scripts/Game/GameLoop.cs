@@ -26,9 +26,7 @@ namespace Game
       var worldConfig = WorldConfig.Default();
 
       GameWorld.Create(worldConfig);
-
       GameWorld.RegisterComponents();
-
       GameWorld.Initialize();
 
       FrameSystems.Create();
